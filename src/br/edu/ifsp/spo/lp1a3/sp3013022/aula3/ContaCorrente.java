@@ -3,7 +3,8 @@ package br.edu.ifsp.spo.lp1a3.sp3013022.aula3;
 public class ContaCorrente extends Conta {
 
 	private double limiteChequeEspecial;
-	private static double taxaJurosChequeEspecial;
+	//Taxa (em %) de juros do cheque especial (Agosto/2018)
+	private static double taxaJurosChequeEspecial = 13;
 	
 	public ContaCorrente(String numeroDaConta, String titular, double limiteChequeEspecial) {
 		super(numeroDaConta, titular);
@@ -32,14 +33,24 @@ public class ContaCorrente extends Conta {
 	}
 	
 	public void debitarJuros() {
-		if(getSaldo() < 0) {
-			setSaldo(getSaldo() - taxaJurosChequeEspecial);
-		}
+		double taxa = - getSaldo() * (taxaJurosChequeEspecial/100);
+		depositar(- taxa);
 	}
 	
 	@Override
 	public double sacar(double valor) {
-		setSaldo(getSaldo() - (valor * (1.01)));
+		if (getSaldo() - valor >= 0) {
+			setSaldo(getSaldo() - valor);
+			depositar(- valor * 0.01);
+		} else {
+			if (getSaldo() - valor <= limiteChequeEspecial) {
+				setSaldo(getSaldo() - valor);
+				depositar(- valor * 0.01);
+				debitarJuros();
+			} else {
+				System.out.println("Saque Indisponível. Sem Limite de Cheque Especial");
+			}
+		}
 		return valor;
 	}
 	

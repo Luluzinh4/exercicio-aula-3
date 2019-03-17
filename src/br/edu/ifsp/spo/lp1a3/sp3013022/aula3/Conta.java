@@ -22,7 +22,7 @@ public class Conta {
 		return numeroDaConta;
 	}
 	
-	public void setNumeroDaConta(String numeroDaConta) {
+	protected void setNumeroDaConta(String numeroDaConta) {
 		this.numeroDaConta = numeroDaConta;
 	}
 	
@@ -30,7 +30,7 @@ public class Conta {
 		return titular;
 	}
 	
-	public void setTitular(String titular) {
+	protected void setTitular(String titular) {
 		this.titular = titular;
 	}
 	
@@ -38,7 +38,7 @@ public class Conta {
 		return saldo;
 	}
 	
-	public void setSaldo(double saldo) {
+	protected void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 	
@@ -54,6 +54,23 @@ public class Conta {
 	public void transferirPara(Conta outraConta, double valor) {
 		double valorADepositar = sacar(valor);
 		outraConta.depositar(valorADepositar);
+	}
+	
+	@Override
+	public String toString() {
+		return this.getNumeroDaConta() + " , " + this.getTitular() + " , " + this.getSaldo();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean resultado = false;
+		
+		if(obj.getClass() == this.getClass()) {
+			Conta other = (Conta)obj;
+			resultado = this.getNumeroDaConta().equals(other.getNumeroDaConta());
+		}
+		
+		return resultado;
 	}
 	
 }
