@@ -4,8 +4,12 @@ public class ContaPoupanca extends Conta{
 
 	private static double taxaRendimento;
 	
-	public ContaPoupanca() {
-		
+	public ContaPoupanca(String numeroDaConta, String titular) {
+		super(numeroDaConta, titular);
+	}
+	
+	public ContaPoupanca(String numeroDaConta, String titular, double saldoInicial) {
+		super(numeroDaConta, titular, saldoInicial);
 	}
 
 	public static double getTaxaRendimento() {
@@ -16,4 +20,7 @@ public class ContaPoupanca extends Conta{
 		ContaPoupanca.taxaRendimento = taxaRendimento;
 	}
 	
+	public void aplicarRendimento() {
+		setSaldo(getSaldo() * (1 + (taxaRendimento/100)));
+	}
 }

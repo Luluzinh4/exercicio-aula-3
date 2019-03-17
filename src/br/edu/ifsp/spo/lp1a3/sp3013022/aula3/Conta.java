@@ -6,8 +6,16 @@ public class Conta {
 	private String titular;
 	private double saldo;
 	
-	public Conta() {
-		
+	public Conta(String numeroDaConta, String titular) {
+		setNumeroDaConta(numeroDaConta);
+		setTitular(titular);
+		setSaldo(0);
+	}
+	
+	public Conta(String numeroDaConta, String titular, double saldoInicial) {
+		setNumeroDaConta(numeroDaConta);
+		setTitular(titular);
+		setSaldo(saldoInicial);
 	}
 	
 	public String getNumeroDaConta() {
@@ -32,6 +40,20 @@ public class Conta {
 	
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
+	}
+	
+	public double sacar(double valor) {
+		this.saldo = this.saldo - valor;
+		return valor;
+	}
+	
+	public void depositar(double valor) {
+		this.saldo = this.saldo + valor;
+	}
+	
+	public void transferirPara(Conta outraConta, double valor) {
+		double valorADepositar = sacar(valor);
+		outraConta.depositar(valorADepositar);
 	}
 	
 }
