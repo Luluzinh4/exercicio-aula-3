@@ -47,6 +47,10 @@ public class Conta {
 		return valor;
 	}
 	
+	/*public void sacar(double valor) {
+		this.saldo = this.saldo - valor;
+	}*/
+	
 	public void depositar(double valor) {
 		this.saldo = this.saldo + valor;
 	}
@@ -55,6 +59,11 @@ public class Conta {
 		double valorADepositar = sacar(valor);
 		outraConta.depositar(valorADepositar);
 	}
+	
+	/*public void transferirPara(Conta outraConta, double valor) {
+		sacar(valor);
+		outraConta.depositar(valor);
+	}*/
 	
 	@Override
 	public String toString() {

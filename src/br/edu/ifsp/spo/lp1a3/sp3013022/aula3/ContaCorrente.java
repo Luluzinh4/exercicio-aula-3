@@ -20,16 +20,8 @@ public class ContaCorrente extends Conta {
 		return limiteChequeEspecial;
 	}
 	
-	public void setLimiteChequeEspecial(double limiteChequeEspecial) {
-		this.limiteChequeEspecial = limiteChequeEspecial;
-	}
-	
 	public static double getTaxaJurosChequeEspecial() {
 		return taxaJurosChequeEspecial;
-	}
-	
-	public static void setTaxaJurosChequeEspecial(double taxaJurosChequeEspecial) {
-		ContaCorrente.taxaJurosChequeEspecial = taxaJurosChequeEspecial;
 	}
 	
 	public void debitarJuros() {
@@ -43,7 +35,7 @@ public class ContaCorrente extends Conta {
 			setSaldo(getSaldo() - valor);
 			depositar(- valor * 0.01);
 		} else {
-			if (getSaldo() - valor <= limiteChequeEspecial) {
+			if (valor <= getSaldo() + limiteChequeEspecial) {
 				setSaldo(getSaldo() - valor);
 				depositar(- valor * 0.01);
 				debitarJuros();

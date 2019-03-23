@@ -8,6 +8,11 @@ import br.edu.ifsp.spo.lp1a3.sp3013022.aula3.Conta;
 
 class ContaTests {
 	
+	/*@Test
+	void test() {
+		fail("Not yet implemented");
+	}*/
+	
 	@Test
 	void criar_uma_nova_conta_com_titular_e_numero_da_conta() {
 		//1. Configuração
@@ -54,17 +59,46 @@ class ContaTests {
 		assertEquals(valorADepositar, conta.getSaldo() - saldoInicial);
 	}
 	
-//	void sacar_um_valor_em_conta() {
-//		//1. Configuração
-//		Conta conta = new Conta("0263 - 27002", "Joaquim Mathias");
-//		double valorSacado;
-//		double saldoInicial = conta.getSaldo();
-//		
-//		//2. Execução
-//		valorSacado = conta.sacar(100);
-//		
-//		//3. Validação / Asserção
-//		assertEquals(valorSacado, saldoInicial - conta.getSaldo());
-//	}
-
+	@Test
+	void sacar_um_valor_em_conta() {
+		//1. Configuração
+		Conta conta = new Conta("0263 - 27002", "Joaquim Mathias");
+		double valorSacado;
+		double saldoInicial = conta.getSaldo();
+		
+		//2. Execução
+		valorSacado = conta.sacar(100);
+		
+		//3. Validação / Asserção
+		assertEquals(valorSacado, saldoInicial - conta.getSaldo());
+	}
+	
+	/*@Test
+	void sacar_um_valor_em_conta() {
+		//1. Configuração
+		Conta conta = new Conta("0934 - 73648", "Geraldo Manzotti", 500.00);
+		double saldoInicial = conta.getSaldo();
+		double valorSacado = 100.00;
+		
+		//2. Execução
+		conta.sacar(valorSacado);
+		
+		//3. Validação / Asserção
+		assertEquals(valorSacado, saldoInicial - conta.getSaldo());
+	}*/
+	
+	@Test
+	void transferir_dinheiro_para_outra_conta() {
+		//1. Configuração
+		Conta conta = new Conta("0934 - 73648", "Geraldo Manzotti", 500.00);
+		Conta outraConta = new Conta("0576 - 83471", "Luísa Damasceno", 450.00);
+		double valor = 100.00;
+				
+		//2. Execução
+		conta.transferirPara(outraConta, valor);
+				
+		//3. Validação / Asserção
+		assertEquals(400.00, conta.getSaldo());
+		assertEquals(550.00, outraConta.getSaldo());	
+	}
 }
