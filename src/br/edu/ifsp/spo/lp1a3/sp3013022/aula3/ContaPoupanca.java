@@ -16,10 +16,6 @@ public class ContaPoupanca extends Conta{
 	public static double getTaxaRendimento() {
 		return taxaRendimento;
 	}
-
-	public static void setTaxaRendimento(double taxaRendimento) {
-		ContaPoupanca.taxaRendimento = taxaRendimento;
-	}
 	
 	public void aplicarRendimento() {
 		setSaldo(getSaldo() * (1 + (taxaRendimento/100)));

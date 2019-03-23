@@ -14,10 +14,10 @@ class ContaCorrenteTests {
 	}*/
 	
 	@Test
-	void criar_uma_nova_conta() {
+	void criar_uma_nova_conta_corrente() {
 		//1. Configuração
-		String numeroConta = "0034 - 89732";
-		String titular = "Isadora Ferreira";
+		String numeroConta = "0589 - 17628";
+		String titular = "Ezequiel Menezes";
 		double limiteCheque = 500.00;
 		
 		//2. Execução
@@ -32,7 +32,7 @@ class ContaCorrenteTests {
 	}
 	
 	@Test
-	void criar_conta_com_saldo_inicial() {
+	void criar_conta_corrente_com_saldo_inicial() {
 		//1. Configuração
 		String numeroConta = "0034 - 89732";
 		String titular = "Isadora Ferreira";
@@ -52,7 +52,7 @@ class ContaCorrenteTests {
 	}
 	
 	@Test
-	void sacar_valor_da_conta() {
+	void sacar_valor_da_conta_corrente() {
 		//1. Configuração
 		ContaCorrente conta = new ContaCorrente("0087 - 86326", "Giulia Oliveira", 200.00, 100.00);
 		double valorASacar = 150.00;
