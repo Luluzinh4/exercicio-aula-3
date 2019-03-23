@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import br.edu.ifsp.spo.lp1a3.sp3013022.aula3.Conta;
+import br.edu.ifsp.spo.lp1a3.sp3013022.aula3.*;
 
 class ContaTests {
 	
@@ -100,5 +100,47 @@ class ContaTests {
 		//3. Validação / Asserção
 		assertEquals(400.00, conta.getSaldo());
 		assertEquals(550.00, outraConta.getSaldo());	
+	}
+	
+	@Test
+	void verificar_toString() {
+		//1. Configuração
+		Conta conta = new Conta("0009 - 87549", "Gabriela Cantiffi");
+		String resultado = null;
+		
+		//2. Execução
+		resultado = conta.toString();
+		
+		//3. Validação / Asserção
+		assertNotNull(resultado);
+	}
+	
+	@Test
+	void verificar_equals_false() {
+		//1. Configuração
+		Conta conta = new Conta("1923 - 89462", "Giovanna Sobrero");
+		ContaCorrente outraConta = new ContaCorrente("9834 - 87264", "Suzana Jerimum", 540.00);
+		boolean resultado;
+		
+		//2. Execução
+		resultado = conta.equals(outraConta);
+		
+		//3. Validação / Asserção
+		assertFalse(resultado); 
+	}
+	
+	@Test
+	void verificar_equals_true() {
+		//1. Configuração
+		Conta conta = new Conta("0357 - 78674", "Carlos Andrade");
+		Conta outraConta = new Conta("0357 - 78674", "Carlos Andrade");
+		
+		//2. Execução
+		boolean resultado1 = conta.equals(outraConta);
+		boolean resultado2 = outraConta.equals(conta);
+		
+		//3. Validação / Asserção
+		assertTrue(resultado1);
+		assertTrue(resultado2);
 	}
 }
