@@ -14,7 +14,7 @@ class ContaPoupancaTests {
 	}*/
 
 	@Test
-	void criar_uma_conta_poupanca() {
+	void criar_uma_conta_poupanca() throws Exception {
 		//1. Configuração
 		String numeroConta = "0478 - 92005";
 		String titular = "Ana Lúcia Guimarães";
@@ -30,7 +30,7 @@ class ContaPoupancaTests {
 	}
 	
 	@Test
-	void criar_uma_conta_poupanca_com_saldo_inicial() {
+	void criar_uma_conta_poupanca_com_saldo_inicial() throws Exception {
 		//1. Configuração
 		String numeroConta = "1897 - 83643";
 		String titular = "Sabrina Carpenter";
@@ -48,7 +48,7 @@ class ContaPoupancaTests {
 	}
 	
 	@Test
-	void aplicar_rendimento_em_conta() {
+	void aplicar_rendimento_em_conta() throws Exception {
 		//1. Configuração
 		ContaPoupanca conta = new ContaPoupanca("0093 - 29355", "Camila Figueiredo", 400.00);
 		double saldoInicial = conta.getSaldo();

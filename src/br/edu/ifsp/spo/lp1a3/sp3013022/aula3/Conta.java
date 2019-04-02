@@ -1,20 +1,42 @@
 package br.edu.ifsp.spo.lp1a3.sp3013022.aula3;
 
+import br.edu.ifsp.spo.lp1a3.sp3013022.aula3.exception.*;
+
 public class Conta {
 
 	private String numeroDaConta;
 	private String titular;
 	private double saldo;
 	
-	public Conta(String numeroDaConta, String titular) {
-		setNumeroDaConta(numeroDaConta);
-		setTitular(titular);
+	public Conta(String numeroDaConta, String titular) throws Exception {
+		if(numeroDaConta.isEmpty()) {
+			throw new NumeroContaInvalidoException("Número da conta não foi inserido!");
+		} else {
+			setNumeroDaConta(numeroDaConta);
+		}
+		
+		if(titular.isEmpty()) {
+			throw new NomeTitularException("Nome do titular não foi inserido!");
+		} else {
+			setTitular(titular);
+		}
+		
 		setSaldo(0);
 	}
 	
-	public Conta(String numeroDaConta, String titular, double saldoInicial) {
-		setNumeroDaConta(numeroDaConta);
-		setTitular(titular);
+	public Conta(String numeroDaConta, String titular, double saldoInicial) throws Exception {
+		if(numeroDaConta.isEmpty()) {
+			throw new NumeroContaInvalidoException("Número da conta não foi inserido!");
+		} else {
+			setNumeroDaConta(numeroDaConta);
+		}
+		
+		if(titular.isEmpty()) {
+			throw new NomeTitularException("Nome do titular não foi inserido!");
+		} else {
+			setTitular(titular);
+		}
+		
 		setSaldo(saldoInicial);
 	}
 	
@@ -42,8 +64,12 @@ public class Conta {
 		this.saldo = saldo;
 	}
 	
-	public double sacar(double valor) {
-		this.saldo = this.saldo - valor;
+	public double sacar(double valor) throws Exception {
+		if(valor > getSaldo()) {
+			throw new SaldoIndisponivelException("Saldo Indisponível!");
+		} else {
+			this.saldo = this.saldo - valor;
+		}
 		return valor;
 	}
 	
@@ -55,7 +81,7 @@ public class Conta {
 		this.saldo = this.saldo + valor;
 	}
 	
-	public void transferirPara(Conta outraConta, double valor) {
+	public void transferirPara(Conta outraConta, double valor) throws Exception {
 		double valorADepositar = sacar(valor);
 		outraConta.depositar(valorADepositar);
 	}

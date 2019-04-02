@@ -14,7 +14,7 @@ class ContaTests {
 	}*/
 	
 	@Test
-	void criar_uma_nova_conta_com_titular_e_numero_da_conta() {
+	void criar_uma_nova_conta_com_titular_e_numero_da_conta() throws Exception {
 		//1. Configuração
 		String titular = "Marilda Fernades";
 		String numeroConta = "0034 - 76519";
@@ -29,7 +29,7 @@ class ContaTests {
 	}
 	
 	@Test
-	void criar_uma_nova_conta_com_saldo_inicial() {
+	void criar_uma_nova_conta_com_saldo_inicial() throws Exception {
 		//1. Configuração
 		String titular = "Hernadez Ludembergue";
 		String numeroConta = "0234 - 86243";
@@ -46,7 +46,7 @@ class ContaTests {
 	}
 	
 	@Test
-	void depositar_um_valor_em_conta() {
+	void depositar_um_valor_em_conta() throws Exception {
 		//1. Configuração
 		Conta conta = new Conta("0054 - 67291", "Hector Farias");
 		double valorADepositar = 150.00;
@@ -60,7 +60,7 @@ class ContaTests {
 	}
 	
 	@Test
-	void sacar_um_valor_em_conta() {
+	void sacar_um_valor_em_conta() throws Exception {
 		//1. Configuração
 		Conta conta = new Conta("0263 - 27002", "Joaquim Mathias");
 		double valorSacado;
@@ -88,7 +88,7 @@ class ContaTests {
 	}*/
 	
 	@Test
-	void transferir_dinheiro_para_outra_conta() {
+	void transferir_dinheiro_para_outra_conta() throws Exception {
 		//1. Configuração
 		Conta conta = new Conta("0934 - 73648", "Geraldo Manzotti", 500.00);
 		Conta outraConta = new Conta("0576 - 83471", "Luísa Damasceno", 450.00);
@@ -105,7 +105,12 @@ class ContaTests {
 	@Test
 	void verificar_toString() {
 		//1. Configuração
-		Conta conta = new Conta("0009 - 87549", "Gabriela Cantiffi");
+		Conta conta = null;
+		try {
+			conta = new Conta("0009 - 87549", "Gabriela Cantiffi");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		String resultado = null;
 		
 		//2. Execução
@@ -116,7 +121,7 @@ class ContaTests {
 	}
 	
 	@Test
-	void verificar_equals_false() {
+	void verificar_equals_false() throws Exception {
 		//1. Configuração
 		Conta conta = new Conta("1923 - 89462", "Giovanna Sobrero");
 		ContaCorrente outraConta = new ContaCorrente("9834 - 87264", "Suzana Jerimum", 540.00);
@@ -130,7 +135,7 @@ class ContaTests {
 	}
 	
 	@Test
-	void verificar_equals_true() {
+	void verificar_equals_true() throws Exception {
 		//1. Configuração
 		Conta conta = new Conta("0357 - 78674", "Carlos Andrade");
 		Conta outraConta = new Conta("0357 - 78674", "Carlos Andrade");

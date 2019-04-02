@@ -5,11 +5,11 @@ public class ContaPoupanca extends Conta{
 	//Taxa (em %) de rendimento da poupança ao ano: 4.8 (ao mês, 0.4)
 	private static double taxaRendimento = 0.4;
 	
-	public ContaPoupanca(String numeroDaConta, String titular) {
+	public ContaPoupanca(String numeroDaConta, String titular) throws Exception {
 		super(numeroDaConta, titular);
 	}
 	
-	public ContaPoupanca(String numeroDaConta, String titular, double saldoInicial) {
+	public ContaPoupanca(String numeroDaConta, String titular, double saldoInicial) throws Exception {
 		super(numeroDaConta, titular, saldoInicial);
 	}
 

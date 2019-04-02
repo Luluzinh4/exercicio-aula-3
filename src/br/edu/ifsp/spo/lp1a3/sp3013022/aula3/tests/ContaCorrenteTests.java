@@ -14,7 +14,7 @@ class ContaCorrenteTests {
 	}*/
 	
 	@Test
-	void criar_uma_nova_conta_corrente() {
+	void criar_uma_nova_conta_corrente() throws Exception {
 		//1. Configuração
 		String numeroConta = "0589 - 17628";
 		String titular = "Ezequiel Menezes";
@@ -32,7 +32,7 @@ class ContaCorrenteTests {
 	}
 	
 	@Test
-	void criar_conta_corrente_com_saldo_inicial() {
+	void criar_conta_corrente_com_saldo_inicial() throws Exception {
 		//1. Configuração
 		String numeroConta = "0034 - 89732";
 		String titular = "Isadora Ferreira";
@@ -52,7 +52,7 @@ class ContaCorrenteTests {
 	}
 	
 	@Test
-	void sacar_valor_da_conta_corrente() {
+	void sacar_valor_da_conta_corrente() throws Exception {
 		//1. Configuração
 		ContaCorrente conta = new ContaCorrente("0087 - 86326", "Giulia Oliveira", 200.00, 100.00);
 		double valorASacar = 150.00;
@@ -66,7 +66,7 @@ class ContaCorrenteTests {
 	}
 	
 	@Test
-	void sacar_valor_da_conta_usando_cheque_especial() {
+	void sacar_valor_da_conta_usando_cheque_especial() throws Exception {
 		//1. Configuração
 		ContaCorrente conta = new ContaCorrente("0298 - 72487", "Juliana Hortelo", 300.00, 100.00);
 		double valorASacar = 350.00;
@@ -81,7 +81,7 @@ class ContaCorrenteTests {
 	}
 	
 	@Test
-	void tentar_sacar_sem_limite_de_cheque_especial() {
+	void tentar_sacar_sem_limite_de_cheque_especial() throws Exception {
 		//1. Configuração
 		ContaCorrente conta = new ContaCorrente("0023 - 98647", "Heitor Barcellos", 100.00, 0);
 		double valorASacar = 150.00;

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		String nomeTitular;
 		String numConta;
@@ -12,6 +12,7 @@ public class App {
 		double saldoChequeEspecial;
 //		int auxiliar;
 		
+		@SuppressWarnings("resource")
 		Scanner ler = new Scanner(System.in);
 		
 		System.out.print("Digite o nome do titular: ");
@@ -27,6 +28,8 @@ public class App {
 		saldoChequeEspecial = ler.nextDouble();
 		
 		Conta cc = new ContaCorrente(numConta, nomeTitular, saldoInicial, saldoChequeEspecial);
+		
+		System.out.println(cc.getTitular());
 		
 //		System.out.println("Bem Vindo ao Banco XPTO!");
 //		System.out.println("Se você deseja se cadastrar, digite 1: ");
